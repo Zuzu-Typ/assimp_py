@@ -9,7 +9,7 @@ env:
   CIBW_BUILD: cp3*
   CIBW_SKIP: cp36-* cp37-* cp38-*
   CIBW_TEST_REQUIRES: pytest
-  CIBW_TEST_COMMAND: pytest {project}/tests
+  CIBW_TEST_COMMAND: pytest {project}/tests -v
 
 jobs:
   build_wheels_windows:
@@ -46,7 +46,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-12]  # macos-latest (ARM64), macos-12 (Intel)
+        os: [macos-latest]  # macos-latest (ARM64), macos-12 (Intel)
         
     env:
       CIBW_ARCHS: universal2
