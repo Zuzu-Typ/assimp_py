@@ -15,6 +15,7 @@ endif()
 
 # build for universal2
 set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
+set_property(DIRECTORY assimp PROPERTY CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
 
 # use ccache to speed up builds if it is available
 find_program(CCACHE_FOUND ccache)
