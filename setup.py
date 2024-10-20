@@ -52,7 +52,7 @@ class CMakeBuild(build_ext):
         cmake_args = [
             '-DCMAKE_BUILD_TYPE=' + cfg,
             '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + str(extdir.parent.absolute()),
-            f'-DCMAKE_OSX_ARCHITECTURES={arch}'
+            f'-DCMAKE_OSX_ARCHITECTURES={arch}',
 
             # Tells cmake which python version to use for this build
             '-DREQUESTED_PYTHON_VERSION=' + PYTHON_VERSION,
