@@ -46,7 +46,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, macos-12]  # macos-latest (ARM64), macos-12 (Intel)
+        os: [macos-12]  # macos-latest (ARM64), macos-12 (Intel)
         
     env:
       CIBW_ARCHS: universal2
