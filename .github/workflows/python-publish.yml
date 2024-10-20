@@ -43,10 +43,15 @@ jobs:
 
   build_wheels_mac:
     name: Build wheels on MacOS (${{ matrix.arch }})
-    runs-on: macos-latest
     strategy:
       matrix:
-        arch: [x86_64, arm64]
+        include:
+        - arch: x86_64
+          runs-on: [macos-latest, x64]
+        - arch: arm64
+          runs-on: [macos-latest, arm64]
+          
+    runs-on: ${{ matrix.runs-on }}
         
     env:
       CIBW_ARCHS: ${{matrix.arch}}
