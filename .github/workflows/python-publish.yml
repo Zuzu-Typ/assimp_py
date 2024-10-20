@@ -47,10 +47,10 @@ jobs:
       matrix:
         include:
         - arch: x86_64
-          runs-on: [macos-latest, x64]
+          runs-on: macos-14-large
         - arch: arm64
-          runs-on: [macos-latest, arm64]
-          
+          runs-on: macos-latest
+
     runs-on: ${{ matrix.runs-on }}
         
     env:
