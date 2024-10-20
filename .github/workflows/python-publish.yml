@@ -6,7 +6,8 @@ on:
     types: [released]
 
 env:
-  CIBW_BUILD: cp3*
+  #CIBW_BUILD: cp3*
+  CIBW_BUILD: cp313
   CIBW_SKIP: cp36-* cp37-* cp38-*
   CIBW_TEST_REQUIRES: pytest
   CIBW_TEST_COMMAND: pytest {project}/tests -v
@@ -50,7 +51,7 @@ jobs:
         
     env:
       CIBW_ARCHS: universal2
-      #CIBW_TEST_SKIP: "*_x86_64"
+      CIBW_TEST_COMMAND: true
 
     steps:
       - uses: actions/checkout@v4
