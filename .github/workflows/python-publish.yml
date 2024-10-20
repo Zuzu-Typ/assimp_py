@@ -10,7 +10,6 @@ env:
   CIBW_SKIP: cp36-* cp37-* cp38-*
   CIBW_TEST_REQUIRES: pytest
   CIBW_TEST_COMMAND: pytest {project}/tests
-  CIBW_TEST_SKIP: "*_x86_64"
 
 jobs:
   build_wheels_windows:
@@ -44,10 +43,14 @@ jobs:
 
   build_wheels_mac:
     name: Build wheels on MacOS (universal2)
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, macos-12]  # macos-latest (ARM64), macos-12 (Intel)
         
     env:
       CIBW_ARCHS: universal2
+      #CIBW_TEST_SKIP: "*_x86_64"
 
     steps:
       - uses: actions/checkout@v4
