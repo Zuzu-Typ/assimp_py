@@ -6,8 +6,7 @@ on:
     types: [released]
 
 env:
-  #CIBW_BUILD: cp3*
-  CIBW_BUILD: cp313*
+  CIBW_BUILD: cp3*
   CIBW_SKIP: cp36-* cp37-* cp38-*
   CIBW_TEST_REQUIRES: pytest
   CIBW_TEST_COMMAND: pytest {project}/tests -v
