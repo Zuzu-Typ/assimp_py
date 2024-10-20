@@ -51,7 +51,6 @@ jobs:
         
     env:
       CIBW_ARCHS: universal2
-      CIBW_TEST_SKIP: "*universal2*"
 
     steps:
       - uses: actions/checkout@v4
