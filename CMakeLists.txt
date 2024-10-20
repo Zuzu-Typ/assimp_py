@@ -13,6 +13,8 @@ else()
     find_package(Python ${REQUESTED_PYTHON_VERSION} EXACT REQUIRED COMPONENTS Interpreter Development)
 endif()
 
+# build for universal2
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
 
 # use ccache to speed up builds if it is available
 find_program(CCACHE_FOUND ccache)
