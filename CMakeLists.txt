@@ -15,7 +15,6 @@ endif()
 
 # build for universal2
 set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
-set_property(DIRECTORY assimp PROPERTY CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
 
 # use ccache to speed up builds if it is available
 find_program(CCACHE_FOUND ccache)
@@ -33,6 +32,9 @@ if(MSVC)
 endif()
 
 add_subdirectory(assimp)
+
+# build for universal2
+set_property(DIRECTORY assimp PROPERTY CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
 
 # -- build the python extension
 include_directories(assimp/include ${PROJECT_BINARY_DIR}/assimp/include ${Python_INCLUDE_DIRS})
