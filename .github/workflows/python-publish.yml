@@ -150,34 +150,34 @@ jobs:
           name: artifact-musllinux-${{matrix.arch}}
           path: ./wheelhouse/*.whl
 
-build_sdist:
-  name: Build source distribution
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      name: Install Python
-      with:
-        python-version: '3.13'
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        name: Install Python
+        with:
+          python-version: '3.13'
 
-    - name: Install build
-      run: pip install build
+      - name: Install build
+        run: pip install build
 
-    - name: Build sdist
-      run: python -m build --sdist
+      - name: Build sdist
+        run: python -m build --sdist
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: artifact-source
-        path: dist/*.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artifact-source
+          path: dist/*.tar.gz
 
-upload_pypi:
-  needs: [build_wheels_windows, build_wheels_mac, build_wheels_manylinux, build_wheels_musllinux, build_sdist]
-  runs-on: ubuntu-latest
-  
-  steps:
-    - uses: actions/download-artifact@v4
-      with:
-        pattern: artifact-*
-        merge-multiple: true
-        path: dist
+  upload_pypi:
+    needs: [build_wheels_windows, build_wheels_mac, build_wheels_manylinux, build_wheels_musllinux, build_sdist]
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: artifact-*
+          merge-multiple: true
+          path: dist
