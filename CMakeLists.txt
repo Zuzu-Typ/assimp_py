@@ -49,7 +49,7 @@ elseif(APPLE)
     #target_link_libraries(assimp_py "-undefined dynamic_lookup")
     # For macOS, link the Python framework explicitly.
     find_package(Python REQUIRED COMPONENTS Interpreter Development)
-    target_link_libraries(assimp_py assimp "-framework Python")
+    target_link_libraries(assimp_py assimp "-undefined dynamic_lookup")
 else()
     target_link_libraries(assimp_py assimp)
 endif()
