@@ -7,7 +7,7 @@ on:
 
 env:
   #CIBW_BUILD: cp3*
-  CIBW_BUILD: cp313
+  CIBW_BUILD: cp313*
   CIBW_SKIP: cp36-* cp37-* cp38-*
   CIBW_TEST_REQUIRES: pytest
   CIBW_TEST_COMMAND: pytest {project}/tests -v
@@ -51,7 +51,7 @@ jobs:
         
     env:
       CIBW_ARCHS: universal2
-      CIBW_TEST_COMMAND: true
+      CIBW_TEST_SKIP: "*universal2*"
 
     steps:
       - uses: actions/checkout@v4
