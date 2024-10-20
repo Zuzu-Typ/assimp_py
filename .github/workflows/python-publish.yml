@@ -9,7 +9,7 @@ env:
   CIBW_BUILD: cp3*
   CIBW_SKIP: cp36-* cp37-* cp38-*
   CIBW_TEST_REQUIRES: pytest
-  CIBW_TEST_COMMAND: pytest {project}/tests -v
+  CIBW_TEST_COMMAND: pytest {project}/tests
 
 jobs:
   build_wheels_windows:

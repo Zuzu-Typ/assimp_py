@@ -46,9 +46,6 @@ if(UNIX AND NOT APPLE)
     # explicitly linking z and rt prevents the error related to that 
     target_link_libraries(assimp_py assimp z rt)
 elseif(APPLE)
-    #target_link_libraries(assimp_py "-undefined dynamic_lookup")
-    # For macOS, link the Python framework explicitly.
-    find_package(Python REQUIRED COMPONENTS Interpreter Development)
     target_link_libraries(assimp_py assimp "-undefined dynamic_lookup")
 else()
     target_link_libraries(assimp_py assimp)
