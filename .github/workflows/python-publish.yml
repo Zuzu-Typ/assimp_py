@@ -42,19 +42,11 @@ jobs:
         path: ./wheelhouse/*.whl
 
   build_wheels_mac:
-    name: Build wheels on MacOS (${{ matrix.arch }})
-    strategy:
-      matrix:
-        include:
-        - arch: x86_64
-          runs-on: macos-14-large
-        - arch: arm64
-          runs-on: macos-latest
-
-    runs-on: ${{ matrix.runs-on }}
+    name: Build wheels on MacOS (universal2)
+    runs-on: macos-latest
         
     env:
-      CIBW_ARCHS: ${{matrix.arch}}
+      CIBW_ARCHS: universal2
 
     steps:
       - uses: actions/checkout@v4
@@ -71,7 +63,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: artifact-mac-${{matrix.arch}}
+          name: artifact-mac-universal2
           path: ./wheelhouse/*.whl
           
   build_wheels_manylinux:
