@@ -32,7 +32,7 @@ endif()
 add_subdirectory(assimp)
 
 # -- build the python extension
-include_directories(assimp/include ${Python_INCLUDE_DIRS})
+include_directories(assimp/include assimp/build/include ${Python_INCLUDE_DIRS})
 link_directories(${Python_LIBRARY_DIRS})
 add_library(assimp_py SHARED assimp_py.c)
 
