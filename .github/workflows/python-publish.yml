@@ -181,3 +181,13 @@ jobs:
           pattern: artifact-*
           merge-multiple: true
           path: dist
+
+      - uses: pypa/gh-action-pypi-publish@v1.10.3
+        with:
+          user: __token__
+          # Uncomment to publish to production PyPI:
+          # password: ${{ secrets.pypi_password }}
+
+          # Uncomment to publish to test PyPI (https://test.pypi.org):
+          password: ${{ secrets.testpypi_password }}
+          repository-url: https://test.pypi.org/legacy/
