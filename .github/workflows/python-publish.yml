@@ -184,10 +184,10 @@ jobs:
 
       - uses: pypa/gh-action-pypi-publish@v1.10.3
         with:
-          user: __token__
+          user: ${{ secrets.PYPI_USERNAME }}
           # Uncomment to publish to production PyPI:
           # password: ${{ secrets.pypi_password }}
 
           # Uncomment to publish to test PyPI (https://test.pypi.org):
-          password: ${{ secrets.testpypi_password }}
+          password: ${{ secrets.PYPI_PASSWORD }}
           repository-url: https://test.pypi.org/legacy/
